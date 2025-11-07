@@ -18,12 +18,13 @@ public class ListaDoble {
 
     //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
     public void insertarInicio(int dato){
-
+        //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
 
     }
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
+        //TODO @(ALAN HORACIO BEJARANO CASTRO)
 
     }
 
@@ -34,30 +35,35 @@ public class ListaDoble {
     se inserta al final */
 
     public void insertarEnOrden(int dato){
+        //TODO @(ELIAS VALDEZ MIRANDA)
 
     }
 
 
     //Eliminar al inicio
     public int eliminarInicio(){
+        //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
 
         return -1;
     }
 
     //Eliminar al final
     public int eliminarFinal(){
+        //TODO @(ALAN HORACIO BEJARANO CASTRO)
 
         return -1;
     }
 
     //Eliminar un elemento
     public int eliminarElemento(int elemento){
+        //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
 
         return elemento;
     }
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento){
+        //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
 
         return false;
 
@@ -75,8 +81,7 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
+        //TODO @(JOSE EVERARDO HERNANDEZ MONTOYA)
 
     }
-
-
 }
