@@ -17,7 +17,7 @@ public class ListaDoble {
     }
 
     //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
-    public void insertarInicio(int dato){
+    public void insertarInicio(int dato){//Angel Andres Santillanes Hernandez
         NodoDoble nuevo = new NodoDoble(dato);//crear nuevo nodo
         if (inicio==null) {// cuando no hay elementos, inicio y fin apuntan al primer nodo
             inicio = fin = nuevo;
@@ -48,7 +48,7 @@ public class ListaDoble {
 
 
     //Eliminar al inicio
-    public int eliminarInicio(){
+    public int eliminarInicio(){//Angel Andres Santillanes Hernandez
         if(listaVacia()){
             return -1;
         }

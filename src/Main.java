@@ -44,7 +44,7 @@ public class Main {
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1:
+                        case 1: //Angel Andres Santillanes Hernandez
                             try {
                                 elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                         "Ingresa el elemento: ",
@@ -58,7 +58,7 @@ public class Main {
                             break;
                         case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
                             break;
-                        case 4:
+                        case 4: //Angel Andres Santillanes Hernandez
                             elemento=lista.eliminarInicio();
                             if (elemento != -1) {
                                 JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento al inicio ", 1);
