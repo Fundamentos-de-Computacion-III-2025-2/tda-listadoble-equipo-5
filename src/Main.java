@@ -32,10 +32,10 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                            "1. Insertar un elemento al inicio\n"+ //Angel andres santillanes hernandez
                                     "2. Insertar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "3. Insertar un elemento en orden\n"+ //TODO @(ELIAS VALDEZ MIRANDA)
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                                    "4. Eliminar un elemento al inicio\n"+ //ANGEL ANDRES SANTILLANES HERNANDEZ
                                     "5. Eliminar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "6. Eliminar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
                                     "7. Buscar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
@@ -44,13 +44,28 @@ public class Main {
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                        case 1: //Angel Andres Santillanes Hernandez
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar al inicio: ", 3));
+                                lista.insertarInicio(elemento);
+                            }catch (NumberFormatException n){
+                                JOptionPane.showMessageDialog(null,"Error"+n.getMessage(),"No se inserto",0);
+                            }
                             break;
                         case 2://Insertar un elemento al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
                         case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
                             break;
-                        case 4: //Eliminar al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                        case 4: //Angel Andres Santillanes Hernandez
+                            try {
+                                elemento=lista.eliminarInicio();
+                                JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento al inicio ", 1);
+                            }catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null, "La lista esta vacia",
+                                        "lista vacia",JOptionPane.INFORMATION_MESSAGE);
+                            }
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
