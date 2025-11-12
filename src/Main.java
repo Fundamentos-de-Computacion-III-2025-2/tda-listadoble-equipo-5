@@ -54,9 +54,29 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
-                        case 6: //Eliminar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 6:
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el elemento a eliminar", "Eliminar elemento específico", JOptionPane.QUESTION_MESSAGE));
+                            lista.eliminarElemento(elemento);
+                            if (elemento != -1) {
+                                JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento especifico ", 1);
+                                break;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La lista esta vacia", "Eliminar elemento especifico ", 1);
+                            }
                             break;
-                        case 7: //Buscar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 7:
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a buscar: ",
+                                        "Buscar elemento: ", 3));
+                                if (lista.buscarElemento(elemento)) {
+                                    JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                                }
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 8: //MostrarLista (InicioFin)
                             lista.mostrarInicioFin();

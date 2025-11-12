@@ -57,18 +57,48 @@ public class ListaDoble {
 
     //Eliminar un elemento
     public int eliminarElemento(int elemento){
-        //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+        if (listaVacia()){
+            return -1;
+        }
+        if (inicio == fin && inicio.dato == elemento){
+            inicio = null;
+            fin = null;
+            return elemento;
+        }
+        if (inicio.dato == elemento){
+            inicio = inicio.siguiente;
+            return elemento;
+        }
+        NodoDoble anterior = inicio;
+        NodoDoble actual = inicio.siguiente;
 
-        return elemento;
+        while(actual != null && actual.dato != elemento){
+            anterior = actual;
+            actual = actual.siguiente;
+        }
+        if (actual != null){
+            anterior.siguiente = actual.siguiente;
+            if (actual.siguiente != null){
+                actual.siguiente.anterior = anterior;
+            }
+            if (actual == fin){
+                fin = anterior;
+            }
+            return elemento;
+        }
+        return -1;
     }
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento){
-        //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
-
-
+        NodoDoble actual = inicio;
+        while (actual != null){
+            if (actual.dato == elemento){
+                return true;
+            }
+            actual = actual.siguiente;
+        }
         return false;
-
     }
 
     //Imprimir los datos de la lista doble de inicio a fin
