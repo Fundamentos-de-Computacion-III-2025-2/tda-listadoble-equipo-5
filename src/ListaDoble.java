@@ -35,9 +35,33 @@ public class ListaDoble {
     se inserta al final */
 
     public void insertarEnOrden(int dato){
-        //TODO @(ELIAS VALDEZ MIRANDA)
-        // Rama inicializada
-
+        // POR ELIAS VALDEZ MIRANDA
+        // Si la lista está vacía o el primer elemento es mayor al dato otorgado,
+        // se actualiza la lista insertando un nuevo nodo al inicio.
+        if (listaVacia() || inicio.dato >= dato) {
+            insertarInicio(dato);
+            return;
+        }
+        // Si la cabeza de la lista es igual a la cola, se trabaja con un solo
+        // elemento y, como no se introduce al inicio, se introduce al final.
+        else if (inicio == fin) {
+            insertarFinal(dato);
+            return;
+        }
+        // Se busca un dato que sea mayor al dato otorgado, y, de encontrarlo,
+        // se introduce en medio de la lista. De lo contrario, si se llega al
+        // final, se introduce el nodo al final.
+        NodoDoble actual = inicio;
+        while (actual != null) {
+            if (actual.dato > dato) {
+                NodoDoble nuevo = new NodoDoble(dato,actual,actual.anterior);
+                actual.anterior.siguiente = nuevo;
+                actual.anterior = nuevo;
+                return;
+            }
+            actual = actual.siguiente;
+        }
+        insertarFinal(dato);
     }
 
 

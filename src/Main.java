@@ -34,7 +34,7 @@ public class Main {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
                                     "2. Insertar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
-                                    "3. Insertar un elemento en orden\n"+ //TODO @(ELIAS VALDEZ MIRANDA)
+                                    "3. Insertar un elemento en orden\n"+ // ELIAS VALDEZ MIRANDA
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
                                     "5. Eliminar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "6. Eliminar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
@@ -48,7 +48,15 @@ public class Main {
                             break;
                         case 2://Insertar un elemento al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
-                        case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
+                        case 3: //Insertar en orden por ELIAS VALDEZ MIRANDA
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar en orden: ", 3));
+                                lista.insertarEnOrden(elemento);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 4: //Eliminar al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
                             break;
