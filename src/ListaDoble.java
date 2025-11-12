@@ -56,9 +56,10 @@ public class ListaDoble {
     }
 
     //Eliminar un elemento
+    //Método eliminarElemento implementado por @(Josué Emiliano Robledo Villegas)
     public int eliminarElemento(int elemento){
         if (listaVacia()){
-            return -1;
+            throw new RuntimeException("Lista vacia; no hay elemento por eliminar");
         }
         if (inicio == fin && inicio.dato == elemento){
             inicio = null;
@@ -67,6 +68,9 @@ public class ListaDoble {
         }
         if (inicio.dato == elemento){
             inicio = inicio.siguiente;
+            if (inicio != null){
+                inicio.anterior = null;
+            }
             return elemento;
         }
         NodoDoble anterior = inicio;
@@ -86,10 +90,11 @@ public class ListaDoble {
             }
             return elemento;
         }
-        return -1;
+        throw new RuntimeException("No se encontro el elemento por eliminar");
     }
 
     //Metodo para buscar un elemento
+    //Método buscarElemento implementado por @(Josué Emiliano Robledo Villegas)
     public boolean buscarElemento(int elemento){
         NodoDoble actual = inicio;
         while (actual != null){

@@ -54,14 +54,16 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
-                        case 6:
-                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el elemento a eliminar", "Eliminar elemento específico", JOptionPane.QUESTION_MESSAGE));
-                            lista.eliminarElemento(elemento);
-                            if (elemento != -1) {
-                                JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento especifico ", 1);
-                                break;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "La lista esta vacia", "Eliminar elemento especifico ", 1);
+                        case 6: // eliminarElemento
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el elemento a eliminar", "Eliminar elemento específico", JOptionPane.QUESTION_MESSAGE));
+                                lista.eliminarElemento(elemento);
+                                JOptionPane.showMessageDialog(null, "Se eliminó el elemento " + elemento, "Eliminar elemento específico", JOptionPane.INFORMATION_MESSAGE);
+
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor ingrese un número entero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                            }
+                            catch (RuntimeException e) {JOptionPane.showMessageDialog(null, e.getMessage(), "Error al eliminar", JOptionPane.ERROR_MESSAGE);
                             }
                             break;
                         case 7:
