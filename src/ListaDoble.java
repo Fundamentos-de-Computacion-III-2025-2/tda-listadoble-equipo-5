@@ -50,7 +50,7 @@ public class ListaDoble {
     //Eliminar al inicio
     public int eliminarInicio(){//Angel Andres Santillanes Hernandez
         if(listaVacia()){
-            return -1;
+            throw new RuntimeException("Error: La lista esta vacia.");
         }
         int d;
         if (inicio == fin){

@@ -32,10 +32,10 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+
+                            "1. Insertar un elemento al inicio\n"+ //Angel andres santillanes hernandez
                                     "2. Insertar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "3. Insertar un elemento en orden\n"+ //TODO @(ELIAS VALDEZ MIRANDA)
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                                    "4. Eliminar un elemento al inicio\n"+ //ANGEL ANDRES SANTILLANES HERNANDEZ
                                     "5. Eliminar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "6. Eliminar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
                                     "7. Buscar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
@@ -59,11 +59,12 @@ public class Main {
                         case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
                             break;
                         case 4: //Angel Andres Santillanes Hernandez
-                            elemento=lista.eliminarInicio();
-                            if (elemento != -1) {
+                            try {
+                                elemento=lista.eliminarInicio();
                                 JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento al inicio ", 1);
-                            }else{
-                                JOptionPane.showMessageDialog(null, "La lista esta Vacia " , "Lista vacia ", 3);
+                            }catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null, "La lista esta vacia",
+                                        "lista vacia",JOptionPane.INFORMATION_MESSAGE);
                             }
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
