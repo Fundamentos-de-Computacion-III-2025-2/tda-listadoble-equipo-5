@@ -26,7 +26,7 @@ public class ListaDoble {
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
-        //TODO @(ALAN HORACIO BEJARANO CASTRO)
+        //(ALAN HORACIO BEJARANO CASTRO)
         NodoDoble nuevo = new NodoDoble(dato);
         if(listaVacia()){
             inicio = nuevo;
@@ -58,10 +58,9 @@ public class ListaDoble {
 
     //Eliminar al final
     public int eliminarFinal(){
-        //TODO @(ALAN HORACIO BEJARANO CASTRO)
+        //(ALAN HORACIO BEJARANO CASTRO)
         if(listaVacia()){
-            JOptionPane.showMessageDialog(null, "La lista doble esta vacia", "Lista vacia", JOptionPane.ERROR_MESSAGE);
-            return -1;
+            throw new RuntimeException("La lista doble está vacía. No se puede eliminar el elemento final.");
         }
 
         int elemento = fin.dato;
