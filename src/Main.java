@@ -47,12 +47,26 @@ public class Main {
                         case 1://Insertar un elemento al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
                             break;
                         case 2://Insertar un elemento al final TODO @(ALAN HORACIO BEJARANO CASTRO)
+                            try{
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresa el elemento a insertar al final:", "Insertar al final", 3));
+                                lista.insertarFinal(elemento);
+                                JOptionPane.showMessageDialog(null, "Elemento" + elemento + "Insertando al final.");
+                            } catch(NumberFormatException nfe){
+                                JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
                             break;
                         case 4: //Eliminar al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
+                            if (!lista.listaVacia()) {
+                                elemento = lista.eliminarFinal();
+                                if (elemento != -1) {
+                                    JOptionPane.showMessageDialog(null, "Elemento" + elemento + "Eliminado del final.");
+                                }
+                            } else {
+                            }
                             break;
                         case 6: //Eliminar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
                             break;

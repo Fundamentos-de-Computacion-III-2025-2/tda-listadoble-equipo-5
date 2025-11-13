@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class ListaDoble {
     protected NodoDoble inicio, fin; //Apuntadores para saber donde esta el inicio y el fin de la lista doble
 
@@ -25,10 +27,16 @@ public class ListaDoble {
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
         //TODO @(ALAN HORACIO BEJARANO CASTRO)
-
-
+        NodoDoble nuevo = new NodoDoble(dato);
+        if(listaVacia()){
+            inicio = nuevo;
+            fin = nuevo;
+        } else{
+            fin.siguiente = nuevo;
+            nuevo.anterior = fin;
+            fin = nuevo;
+        }
     }
-
 
     /* Metodo para insertar un elemento suponiendo que la lista está en orden ascendente
     es decir, se debe comenzar a recorrer la lista e insertar el elemento antes del primer
@@ -51,8 +59,21 @@ public class ListaDoble {
     //Eliminar al final
     public int eliminarFinal(){
         //TODO @(ALAN HORACIO BEJARANO CASTRO)
+        if(listaVacia()){
+            JOptionPane.showMessageDialog(null, "La lista doble esta vacia", "Lista vacia", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
 
-        return -1;
+        int elemento = fin.dato;
+
+        if(inicio == fin){
+            inicio = null;
+            fin = null;
+        } else{
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
     }
 
     //Eliminar un elemento
