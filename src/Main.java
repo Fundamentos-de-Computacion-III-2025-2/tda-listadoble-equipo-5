@@ -32,10 +32,10 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                            "1. Insertar un elemento al inicio\n"+ //ANGEL ANDRES SANTILLANES HERNANDEZ
                                     "2. Insertar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
-                                    "3. Insertar un elemento en orden\n"+ //TODO @(ELIAS VALDEZ MIRANDA)
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                                    "3. Insertar un elemento en orden\n"+ // ELIAS VALDEZ MIRANDA
+                                    "4. Eliminar un elemento al inicio\n"+ //ANGEL ANDRES SANTILLANES HERNANDEZ
                                     "5. Eliminar un elemento al final\n"+ //TODO @(ALAN HORACIO BEJARANO CASTRO)
                                     "6. Eliminar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
                                     "7. Buscar un elemento\n"+ //TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
@@ -44,7 +44,15 @@ public class Main {
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                        case 1: //Angel Andres Santillanes Hernandez
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar al inicio: ", 3));
+                                lista.insertarInicio(elemento);
+                            }catch (NumberFormatException n){
+                                JOptionPane.showMessageDialog(null,"Error"+n.getMessage(),"No se inserto",0);
+                            }
                             break;
                         case 2://Insertar un elemento al final (ALAN HORACIO BEJARANO CASTRO)
                             try{
@@ -55,9 +63,24 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
                             }
                             break;
-                        case 3: //Insertar en orden TODO @(ELIAS VALDEZ MIRANDA)
+                        case 3: //Insertar en orden por ELIAS VALDEZ MIRANDA
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar en orden: ", 3));
+                                lista.insertarEnOrden(elemento);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
-                        case 4: //Eliminar al inicio TODO @(ANGEL ANDRES SANTILLANES HERNANDEZ)
+                        case 4: //Angel Andres Santillanes Hernandez
+                            try {
+                                elemento=lista.eliminarInicio();
+                                JOptionPane.showMessageDialog(null, "Se eliminó al elemento " + elemento, "Eliminar elemento al inicio ", 1);
+                            }catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null, "La lista esta vacia",
+                                        "lista vacia",JOptionPane.INFORMATION_MESSAGE);
+                            }
                             break;
                         case 5: //Eliminar al final (ALAN HORACIO BEJARANO CASTRO)
                             try {
@@ -67,9 +90,31 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error al Eliminar", JOptionPane.ERROR_MESSAGE);
                             }
                             break;
-                        case 6: //Eliminar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 6: // eliminarElemento
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el elemento a eliminar", "Eliminar elemento específico", JOptionPane.QUESTION_MESSAGE));
+                                lista.eliminarElemento(elemento);
+                                JOptionPane.showMessageDialog(null, "Se eliminó el elemento " + elemento, "Eliminar elemento específico", JOptionPane.INFORMATION_MESSAGE);
+
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor ingrese un número entero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                            }
+                            catch (RuntimeException e) {JOptionPane.showMessageDialog(null, e.getMessage(), "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
-                        case 7: //Buscar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 7:
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a buscar: ",
+                                        "Buscar elemento: ", 3));
+                                if (lista.buscarElemento(elemento)) {
+                                    JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                                }
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 8: //MostrarLista (InicioFin)
                             lista.mostrarInicioFin();
