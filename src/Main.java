@@ -54,7 +54,14 @@ public class Main {
                                 JOptionPane.showMessageDialog(null,"Error"+n.getMessage(),"No se inserto",0);
                             }
                             break;
-                        case 2://Insertar un elemento al final TODO @(ALAN HORACIO BEJARANO CASTRO)
+                        case 2://Insertar un elemento al final (ALAN HORACIO BEJARANO CASTRO)
+                            try{
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresa el elemento a insertar al final:", "Insertar al final", 3));
+                                lista.insertarFinal(elemento);
+                                JOptionPane.showMessageDialog(null, "Elemento" + elemento + "Insertando al final.");
+                            } catch(NumberFormatException n){
+                                JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 3: //Insertar en orden por ELIAS VALDEZ MIRANDA
                             try {
@@ -75,7 +82,13 @@ public class Main {
                                         "lista vacia",JOptionPane.INFORMATION_MESSAGE);
                             }
                             break;
-                        case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
+                        case 5: //Eliminar al final (ALAN HORACIO BEJARANO CASTRO)
+                            try {
+                                int elementoEliminado = lista.eliminarFinal();
+                                JOptionPane.showMessageDialog(null, "Elemento " + elementoEliminado + " eliminado del final.");
+                            } catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null, e.getMessage(), "Error al Eliminar", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 6: // eliminarElemento
                             try {

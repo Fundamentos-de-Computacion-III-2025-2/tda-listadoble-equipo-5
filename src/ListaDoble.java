@@ -1,3 +1,4 @@
+
 public class ListaDoble {
     protected NodoDoble inicio, fin; //Apuntadores para saber donde esta el inicio y el fin de la lista doble
 
@@ -31,10 +32,17 @@ public class ListaDoble {
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
-        //TODO @(ALAN HORACIO BEJARANO CASTRO)
-
+        //(ALAN HORACIO BEJARANO CASTRO)
+        NodoDoble nuevo = new NodoDoble(dato);
+        if(listaVacia()){
+            inicio = nuevo;
+            fin = nuevo;
+        } else{
+            fin.siguiente = nuevo;
+            nuevo.anterior = fin;
+            fin = nuevo;
+        }
     }
-
 
     /* Metodo para insertar un elemento suponiendo que la lista está en orden ascendente
     es decir, se debe comenzar a recorrer la lista e insertar el elemento antes del primer
@@ -92,10 +100,21 @@ public class ListaDoble {
 
     //Eliminar al final
     public int eliminarFinal(){
-        //TODO @(ALAN HORACIO BEJARANO CASTRO)
+        //(ALAN HORACIO BEJARANO CASTRO)
+        if(listaVacia()){
+            throw new RuntimeException("La lista doble está vacía. No se puede eliminar el elemento final.");
+        }
 
+        int elemento = fin.dato;
 
-        return -1;
+        if(inicio == fin){
+            inicio = null;
+            fin = null;
+        } else{
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
     }
 
     //Eliminar un elemento
