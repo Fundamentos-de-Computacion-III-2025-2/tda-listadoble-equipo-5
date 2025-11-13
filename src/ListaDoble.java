@@ -1,28 +1,29 @@
 
 public class ListaDoble {
-    protected NodoDoble inicio, fin; //Apuntadores para saber donde esta el inicio y el fin de la lista doble
+    protected NodoDoble inicio, fin; //Apuntadores para saber donde está el inicio y el fin de la lista doble
 
-    //Constructor para crear la lista doble vacía
-    public ListaDoble(){
+    // Constructor para crear la lista doble vacía
+    public ListaDoble() {
         inicio = null;
-        fin =null;
+        fin = null;
     }
 
-    //Metodo para saber si la lista doble está vacía
-    public boolean listaVacia(){
-        if(inicio==null){
+    // Metodo para saber si la lista doble está vacía
+    public boolean listaVacia() {
+        if (inicio == null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
-    public void insertarInicio(int dato){//Angel Andres Santillanes Hernandez
-        NodoDoble nuevo = new NodoDoble(dato);//crear nuevo nodo
-        if (inicio==null) {// cuando no hay elementos, inicio y fin apuntan al primer nodo
+    // Metodo para agregar un NodoDoble al Inicio de la Lista Doble
+    // ANGEL ANDRES SANTILLANES HERNANDEZ
+    public void insertarInicio(int dato) {
+        NodoDoble nuevo = new NodoDoble(dato); //crear nuevo nodo
+        if (inicio == null) { // cuando no hay elementos, inicio y fin apuntan al primer nodo
             inicio = fin = nuevo;
-        }else{
+        } else {
             nuevo.siguiente = inicio;
             inicio.anterior = nuevo;
             inicio = nuevo;
@@ -30,14 +31,15 @@ public class ListaDoble {
 
     }
 
-    //Metodo para insertar al Final de la lista doble
-    public void insertarFinal(int dato){
-        //(ALAN HORACIO BEJARANO CASTRO)
+    //Metodo para insertar al final de la lista doble
+    // ALAN HORACIO BEJARANO CASTRO
+    public void insertarFinal(int dato) {
+
         NodoDoble nuevo = new NodoDoble(dato);
-        if(listaVacia()){
+        if (listaVacia()) {
             inicio = nuevo;
             fin = nuevo;
-        } else{
+        } else {
             fin.siguiente = nuevo;
             nuevo.anterior = fin;
             fin = nuevo;
@@ -46,11 +48,10 @@ public class ListaDoble {
 
     /* Metodo para insertar un elemento suponiendo que la lista está en orden ascendente
     es decir, se debe comenzar a recorrer la lista e insertar el elemento antes del primer
-    número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
+    número mayor al elemento que se encuentre en la lista, si no se encuentra un dato mayor
     se inserta al final */
-
-    public void insertarEnOrden(int dato){
-        // POR ELIAS VALDEZ MIRANDA
+    // ELIAS VALDEZ MIRANDA
+    public void insertarEnOrden(int dato) {
         // Si la lista está vacía o el primer elemento es mayor al dato otorgado,
         // se actualiza la lista insertando un nuevo nodo al inicio.
         if (listaVacia() || inicio.dato >= dato) {
@@ -69,7 +70,7 @@ public class ListaDoble {
         NodoDoble actual = inicio;
         while (actual != null) {
             if (actual.dato > dato) {
-                NodoDoble nuevo = new NodoDoble(dato,actual,actual.anterior);
+                NodoDoble nuevo = new NodoDoble(dato, actual, actual.anterior);
                 actual.anterior.siguiente = nuevo;
                 actual.anterior = nuevo;
                 return;
@@ -81,56 +82,57 @@ public class ListaDoble {
 
 
     //Eliminar al inicio
-    public int eliminarInicio(){//Angel Andres Santillanes Hernandez
-        if(listaVacia()){
-            throw new RuntimeException("Error: La lista esta vacia.");
+    // ANGEL ANDRES SANTILLANES HERNANDEZ
+    public int eliminarInicio() {
+        if (listaVacia()) {
+            throw new RuntimeException("Error: La lista esta vacía.");
         }
         int d;
-        if (inicio == fin){
+        if (inicio == fin) {
             d = inicio.dato;
-            inicio=fin=null;
+            inicio = fin = null;
             return d;
-        }else{
+        } else {
             d = inicio.dato;
             inicio = inicio.siguiente;
-            inicio.anterior=null;
+            inicio.anterior = null;
         }
         return d;
     }
 
     //Eliminar al final
-    public int eliminarFinal(){
-        //(ALAN HORACIO BEJARANO CASTRO)
-        if(listaVacia()){
+    // ALAN HORACIO BEJARANO CASTRO
+    public int eliminarFinal() {
+        if (listaVacia()) {
             throw new RuntimeException("La lista doble está vacía. No se puede eliminar el elemento final.");
         }
 
         int elemento = fin.dato;
 
-        if(inicio == fin){
+        if (inicio == fin) {
             inicio = null;
             fin = null;
-        } else{
+        } else {
             fin = fin.anterior;
             fin.siguiente = null;
         }
         return elemento;
     }
 
-    //Eliminar un elemento
-    //Método eliminarElemento implementado por @(Josué Emiliano Robledo Villegas)
-    public int eliminarElemento(int elemento){
-        if (listaVacia()){
-            throw new RuntimeException("Lista vacia; no hay elemento por eliminar");
+    // Eliminar un elemento
+    // JOSUE EMILIANO ROBLEDO VILLEGAS
+    public int eliminarElemento(int elemento) {
+        if (listaVacia()) {
+            throw new RuntimeException("Lista vacía: No hay elemento por eliminar");
         }
-        if (inicio == fin && inicio.dato == elemento){
+        if (inicio == fin && inicio.dato == elemento) {
             inicio = null;
             fin = null;
             return elemento;
         }
-        if (inicio.dato == elemento){
+        if (inicio.dato == elemento) {
             inicio = inicio.siguiente;
-            if (inicio != null){
+            if (inicio != null) {
                 inicio.anterior = null;
             }
             return elemento;
@@ -138,29 +140,29 @@ public class ListaDoble {
         NodoDoble anterior = inicio;
         NodoDoble actual = inicio.siguiente;
 
-        while(actual != null && actual.dato != elemento){
+        while (actual != null && actual.dato != elemento) {
             anterior = actual;
             actual = actual.siguiente;
         }
-        if (actual != null){
+        if (actual != null) {
             anterior.siguiente = actual.siguiente;
-            if (actual.siguiente != null){
+            if (actual.siguiente != null) {
                 actual.siguiente.anterior = anterior;
             }
-            if (actual == fin){
+            if (actual == fin) {
                 fin = anterior;
             }
             return elemento;
         }
-        throw new RuntimeException("No se encontro el elemento por eliminar");
+        throw new RuntimeException("No se encontró el elemento por eliminar");
     }
 
-    //Metodo para buscar un elemento
-    //Método buscarElemento implementado por @(Josué Emiliano Robledo Villegas)
-    public boolean buscarElemento(int elemento){
+    // Metodo para buscar un elemento
+    // JOSUE EMILIANO ROBLEDO VILLEGAS
+    public boolean buscarElemento(int elemento) {
         NodoDoble actual = inicio;
-        while (actual != null){
-            if (actual.dato == elemento){
+        while (actual != null) {
+            if (actual.dato == elemento) {
                 return true;
             }
             actual = actual.siguiente;
@@ -169,18 +171,19 @@ public class ListaDoble {
     }
 
     //Imprimir los datos de la lista doble de inicio a fin
-    public void mostrarInicioFin(){
-        NodoDoble actual=inicio;
+    public void mostrarInicioFin() {
+        NodoDoble actual = inicio;
         System.out.println();
-        while(actual!=null){
-            System.out.print(actual.dato+" --> ");
+        while (actual != null) {
+            System.out.print(actual.dato + " --> ");
             actual = actual.siguiente;
         }
     }
 
-    //Imprimir los datos de la lista doble de fin a inicio
-    public void mostrarFinInicio(){
-        // (JOSE EVERARDO HERNANDEZ MONTOYA)
+    // Imprimir los datos de la lista doble de fin a inicio
+    // JOSE EVERARDO HERNANDEZ MONTOYA
+    public void mostrarFinInicio() {
+
         NodoDoble actual = fin; // Empezamos desde el final
         System.out.println(); // Salto de línea por estética
 
@@ -188,6 +191,6 @@ public class ListaDoble {
             System.out.print(actual.dato + " --> ");
             actual = actual.anterior; // Nos movemos hacia atrás
         }
-
     }
+
 }
