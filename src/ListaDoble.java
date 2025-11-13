@@ -82,7 +82,13 @@ public class ListaDoble {
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
         //TODO @(JOSE EVERARDO HERNANDEZ MONTOYA)
+        NodoDoble actual = fin; // Empezamos desde el final
+        System.out.println(); // Salto de línea por estética
 
+        while (actual != null) {
+            System.out.print(actual.dato + " --> ");
+            actual = actual.anterior; // Nos movemos hacia atrás
+        }
 
     }
 }
