@@ -77,9 +77,31 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @(ALAN HORACIO BEJARANO CASTRO)
                             break;
-                        case 6: //Eliminar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 6: // eliminarElemento
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el elemento a eliminar", "Eliminar elemento específico", JOptionPane.QUESTION_MESSAGE));
+                                lista.eliminarElemento(elemento);
+                                JOptionPane.showMessageDialog(null, "Se eliminó el elemento " + elemento, "Eliminar elemento específico", JOptionPane.INFORMATION_MESSAGE);
+
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor ingrese un número entero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                            }
+                            catch (RuntimeException e) {JOptionPane.showMessageDialog(null, e.getMessage(), "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
-                        case 7: //Buscar elemento TODO @(JOSUE EMILIANO ROBLEDO VILLEGAS)
+                        case 7:
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a buscar: ",
+                                        "Buscar elemento: ", 3));
+                                if (lista.buscarElemento(elemento)) {
+                                    JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                                }
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 8: //MostrarLista (InicioFin)
                             lista.mostrarInicioFin();
